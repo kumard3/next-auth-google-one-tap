@@ -1,28 +1,21 @@
-# Create T3 App
+Certainly! Here's a suggested repository description for your Google One Tap login implementation using NextAuth:
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+Repo Description: 
 
-## What's next? How do I make an app with this?
+"🔐 **NextAuth with Google One Tap Login** 🔐
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+Effortlessly integrate Google One Tap authentication into your Next.js application with this repository. Leverage the power of NextAuth for seamless, secure, and user-friendly login experiences. Say goodbye to traditional login hassles and embrace the simplicity of Google One Tap!
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+✨ **Features:**
+- Easy integration with NextAuth
+- Streamlined Google One Tap login
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+🚀 **Getting Started:**
+1. Clone this repository
+2. Enjoy a hassle-free Google One Tap login in your Next.js app!
 
-## Learn More
+🤝 **Contributing:**
+We welcome contributions! Fork the repository, make improvements, and submit a pull request. Let's make authentication simpler together!
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
-
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
-
-## How do I deploy this?
-
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+Feel free to customize it based on the specific details of your implementation and any additional features you may have included.
