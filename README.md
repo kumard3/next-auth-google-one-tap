@@ -2,7 +2,7 @@ Certainly! Here's a suggested repository description for your Google One Tap log
 
 Repo Description: 
 
-"🔐 **NextAuth with Google One Tap Login** 🔐
+🔐 **NextAuth with Google One Tap Login** 🔐
 
 Effortlessly integrate Google One Tap authentication into your Next.js application with this repository. Leverage the power of NextAuth for seamless, secure, and user-friendly login experiences. Say goodbye to traditional login hassles and embrace the simplicity of Google One Tap!
 
