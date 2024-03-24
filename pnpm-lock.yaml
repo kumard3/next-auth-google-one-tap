@@ -58,6 +58,9 @@ devDependencies:
   '@types/eslint':
     specifier: ^8.44.7
     version: 8.44.9
+  '@types/google-one-tap':
+    specifier: ^1.2.6
+    version: 1.2.6
   '@types/node':
     specifier: ^18.17.0
     version: 18.19.3
@@ -484,6 +487,10 @@ packages:
 
   /@types/estree@1.0.5:
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
+    dev: true
+
+  /@types/google-one-tap@1.2.6:
+    resolution: {integrity: sha512-REmJsXVHvKb/sgI8DF+7IesMbDbcsEokHBqxU01ENZ8d98UPWdRLhUCtxEm9bhNFFg6PJGy7PNFdvovp0hK3jA==}
     dev: true
 
   /@types/json-schema@7.0.15:

@@ -1,8 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-
 // ref to https://www.ramielcreations.com/next-auth-google-one-tap
+// ref to https://baccini-al.medium.com/google-one-tap-sign-in-with-nextauth-js-and-app-router-next-js-13-4-9f307c5a89cb
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { type GetServerSidePropsContext } from "next";
 import {
@@ -11,6 +8,7 @@ import {
   type NextAuthOptions,
 } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import GoogleProvider from "next-auth/providers/google";
 import { OAuth2Client } from "google-auth-library";
 
 import { env } from "~/env";
@@ -82,14 +80,8 @@ export const authOptions: NextAuthOptions = {
         const user = await db.user.findUnique({
           where: { email: email?.toLowerCase() },
         });
-        if (user) {
-          // Include the desired user properties in the session
-          return Promise.resolve({
-            id: user.id,
-            email: user.email,
-            image: user.image,
-          });
-        } else {
+
+        if (!user) {
           const create_user = await db.user.create({
             data: {
               email: email?.toLowerCase(),
@@ -114,14 +106,28 @@ export const authOptions: NextAuthOptions = {
             },
           });
           return create_user;
+          // Include the desired user properties in the session
         }
+        return Promise.resolve({
+          id: user.id,
+          email: user.email,
+          image: user.image,
+          name: [given_name, family_name].join(" "),
+        });
       },
+    }),
+    GoogleProvider({
+      // not this
+      clientId: env.GOOGLE_CLIENT_ID,
+      clientSecret: env.GOOGLE_CLIENT_SECRET,
     }),
   ],
   callbacks: {
-    session: async ({ session, user }) => {
-      console.log(session, "from server");
-      console.log(user, "user.id");
+    session: async ({ session, newSession, token, trigger, user }) => {
+      console.log(user, "session");
+      console.log(newSession, "newSession");
+      console.log(token, "token");
+      console.log(trigger, "trigger");
       return {
         ...session,
         user: {
@@ -129,15 +135,15 @@ export const authOptions: NextAuthOptions = {
         },
       };
     },
-    jwt({ token, account, user }) {
-      console.log(token, "token");
-      console.log(account, " account");
-      console.log(user, " user");
+    jwt({ token, user, account, profile }) {
+      console.log(user, "user");
+      console.log(account, "account");
+      console.log(profile, "account");
       if (token) {
         token.accessToken = token.access_token;
         token.id = token.id;
         token.email = token.email;
-        token.name = "name";
+        token.name = token.name;
       }
       return token;
     },
